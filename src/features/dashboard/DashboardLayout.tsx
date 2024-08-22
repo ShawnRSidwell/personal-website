@@ -7,6 +7,7 @@ import GithubCalendar from "./GithubCalendar";
 import Stats from "./Stats";
 import { recentProjects } from "../../data/recent-projects";
 import TodayActivity from "./TodayActivity";
+import LanguageChart from "./LanguageChart";
 
 const StyledDashboardLayout = styled.div`
   display: grid;
@@ -27,8 +28,7 @@ function DashboardLayout() {
           languagesUsed={6}
         />
         <TodayActivity recentProjects={recentProjects} />
-        {/* <DurationChart confirmedStays={confirmedStays} />
-        <SalesChart bookings={bookings} numDays={numDays} /> */}
+        <LanguageChart />
       </StyledDashboardLayout>
       <GithubCalendar />
     </>

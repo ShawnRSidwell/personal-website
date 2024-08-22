@@ -5,10 +5,10 @@ import Button from "../../ui/Button";
 const StyledTodayItem = styled.li`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr;
-  gap: 1.2rem;
+  gap: 0.8rem;
   align-items: center;
 
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--color-grey-100);
 
@@ -19,6 +19,7 @@ const StyledTodayItem = styled.li`
 
 const ProjectTitle = styled.div`
   font-weight: 800;
+  font-size: 1.4rem;
 `;
 
 interface TodayItemProps {
@@ -37,9 +38,14 @@ function TodayItem({ project }: TodayItemProps) {
       <ProjectTitle> {title}</ProjectTitle>
       <div>{description}</div>
       <div>{techUsed}</div>
-      <Button $size="small" $variation="primary" as={Link} to={link}>
-        Click Here
-      </Button>
+      <div>
+        <Button $size="small" $variation="primary" as={Link} to={link}>
+          Github
+        </Button>
+        <Button $size="small" $variation="primary" as={Link} to={link}>
+          demo
+        </Button>
+      </div>
     </StyledTodayItem>
   );
 }
