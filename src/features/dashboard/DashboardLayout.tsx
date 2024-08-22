@@ -5,6 +5,8 @@ import styled from "styled-components";
 // import TodayActivity from "../check-in-out/TodayActivity";
 import GithubCalendar from "./GithubCalendar";
 import Stats from "./Stats";
+import { recentProjects } from "../../data/recent-projects";
+import TodayActivity from "./TodayActivity";
 
 const StyledDashboardLayout = styled.div`
   display: grid;
@@ -12,22 +14,24 @@ const StyledDashboardLayout = styled.div`
   grid-template-rows: auto 34rem auto;
   gap: 2.4rem;
 `;
-function DashboardLayout() {
-  // if (yearsCoding || numRepos || contributions || languagesUsed) return <Spinner />;
 
+// if (yearsCoding || numRepos || contributions || languagesUsed) return <Spinner />;
+function DashboardLayout() {
   return (
-    <StyledDashboardLayout>
-      <Stats
-        yearsCoding={3}
-        numRepos={67}
-        contributions={442}
-        languagesUsed={6}
-      />
-      {/* <TodayActivity />
-      <DurationChart confirmedStays={confirmedStays} />
-      <SalesChart bookings={bookings} numDays={numDays} /> */}
+    <>
+      <StyledDashboardLayout>
+        <Stats
+          yearsCoding={3}
+          numRepos={67}
+          contributions={717}
+          languagesUsed={6}
+        />
+        <TodayActivity recentProjects={recentProjects} />
+        {/* <DurationChart confirmedStays={confirmedStays} />
+        <SalesChart bookings={bookings} numDays={numDays} /> */}
+      </StyledDashboardLayout>
       <GithubCalendar />
-    </StyledDashboardLayout>
+    </>
   );
 }
 

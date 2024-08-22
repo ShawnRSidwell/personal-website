@@ -3,9 +3,9 @@ import GitHubCalendar from "react-github-calendar";
 export default function GithubCalendar() {
   return (
     <GitHubCalendar
-      username="soumyajit4419"
+      username="ShawnRSidwell"
       blockSize={15}
-      blockMargin={5}
+      blockMargin={7}
       fontSize={16}
     />
   );
