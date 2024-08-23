@@ -146,7 +146,7 @@ function LanguageChart() {
           <Legend
             verticalAlign="middle"
             align="right"
-            width="30%"
+            // width="30%"
             layout="vertical"
             iconSize={15}
             iconType="circle"
