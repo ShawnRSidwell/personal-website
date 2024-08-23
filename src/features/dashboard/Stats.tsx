@@ -3,6 +3,9 @@ import {
   HiOutlineBriefcase,
   HiOutlineCalendarDays,
   HiOutlineChartBar,
+  HiOutlineComputerDesktop,
+  HiOutlineCpuChip,
+  HiOutlineGlobeAlt,
 } from "react-icons/hi2";
 import Stat from "./Stat";
 
@@ -23,25 +26,25 @@ function Stats({
       <Stat
         title="Years Experience"
         color="blue"
-        icon={<HiOutlineBriefcase />}
+        icon={<HiOutlineCalendarDays />}
         value={yearsCoding}
       />
       <Stat
         title="Number of Git Repos"
         color="green"
-        icon={<HiOutlineBanknotes />}
+        icon={<HiOutlineComputerDesktop />}
         value={numRepos}
       />
       <Stat
         title="Number of Contributions"
         color="indigo"
-        icon={<HiOutlineCalendarDays />}
+        icon={<HiOutlineCpuChip />}
         value={contributions}
       />
       <Stat
         title="Languages Used"
         color="yellow"
-        icon={<HiOutlineChartBar />}
+        icon={<HiOutlineGlobeAlt />}
         value={languagesUsed}
       />
     </>
