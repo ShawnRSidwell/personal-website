@@ -1,8 +1,5 @@
 import {
-  HiOutlineBanknotes,
-  HiOutlineBriefcase,
   HiOutlineCalendarDays,
-  HiOutlineChartBar,
   HiOutlineComputerDesktop,
   HiOutlineCpuChip,
   HiOutlineGlobeAlt,
