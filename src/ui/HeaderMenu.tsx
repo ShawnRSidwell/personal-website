@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { HiOutlineUser } from "react-icons/hi2";
+import { HiOutlineHome } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
 import ButtonIcon from "./ButtonIcon";
 import DarkModeToggle from "./DarkModeToggle";
@@ -14,12 +14,12 @@ function HeaderMenu() {
 
   return (
     <StyledHeaderMenu>
+      <li>{<DarkModeToggle />}</li>
       <li>
-        <ButtonIcon onClick={() => navigate("/account")}>
-          <HiOutlineUser />
+        <ButtonIcon onClick={() => navigate("/")}>
+          <HiOutlineHome />
         </ButtonIcon>
       </li>
-      <li>{<DarkModeToggle />}</li>
     </StyledHeaderMenu>
   );
 }
