@@ -7,7 +7,6 @@ export default function Projects() {
     <>
       <Row type="horizontal">
         <Heading as="h1">Github Projects</Heading>
-        {/* <CabinTableOperations /> */}
       </Row>
       <Row type="horizontal">
         <ProjectTable />

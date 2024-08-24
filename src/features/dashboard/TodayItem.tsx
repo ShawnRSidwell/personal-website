@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../../ui/Button";
 
-const StyledTodayItem = styled.li`
+const StyledProjectItem = styled.li`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr;
   gap: 0.8rem;
@@ -22,7 +22,7 @@ const ProjectTitle = styled.div`
   font-size: 1.4rem;
 `;
 
-interface TodayItemProps {
+interface ProjectItemProps {
   project: {
     title: string;
     description: string;
@@ -31,10 +31,10 @@ interface TodayItemProps {
   };
 }
 
-function TodayItem({ project }: TodayItemProps) {
+function ProjectItem({ project }: ProjectItemProps) {
   const { title, description, techUsed, link } = project;
   return (
-    <StyledTodayItem>
+    <StyledProjectItem>
       <ProjectTitle> {title}</ProjectTitle>
       <div>{description}</div>
       <div>{techUsed}</div>
@@ -46,8 +46,8 @@ function TodayItem({ project }: TodayItemProps) {
           demo
         </Button>
       </div>
-    </StyledTodayItem>
+    </StyledProjectItem>
   );
 }
 
-export default TodayItem;
+export default ProjectItem;

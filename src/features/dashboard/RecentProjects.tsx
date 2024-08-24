@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Heading from "../../ui/Heading";
 import Row from "../../ui/Row";
 import Spinner from "../../ui/Spinner";
-import TodayItem from "./TodayItem";
+import ProjectItem from "./TodayItem";
 
-const StyledToday = styled.div`
+const StyledProjects = styled.div`
   /* Box */
   background-color: var(--color-grey-0);
   border: 1px solid var(--color-grey-100);
@@ -19,7 +19,7 @@ const StyledToday = styled.div`
   padding-top: 2.4rem;
 `;
 
-const TodayList = styled.ul`
+const ProjectList = styled.ul`
   overflow: scroll;
   overflow-x: hidden;
 
@@ -31,14 +31,14 @@ const TodayList = styled.ul`
   -ms-overflow-style: none;
 `;
 
-const NoActivity = styled.p`
+const NoProject = styled.p`
   text-align: center;
   font-size: 1.8rem;
   font-weight: 500;
   margin-top: 0.8rem;
 `;
 
-interface TodayActivityProps {
+interface RecentProjectsProps {
   recentProjects: {
     title: string;
     description: string;
@@ -47,28 +47,28 @@ interface TodayActivityProps {
   }[];
 }
 
-function TodayActivity({ recentProjects }: TodayActivityProps) {
+function RecentProjects({ recentProjects }: RecentProjectsProps) {
   const isLoading = false;
   return (
-    <StyledToday>
+    <StyledProjects>
       <Row type="horizontal">
         <Heading as="h2">Recent Projects</Heading>
       </Row>
       {!isLoading ? (
         recentProjects?.length > 0 ? (
-          <TodayList>
+          <ProjectList>
             {recentProjects.map((project) => (
-              <TodayItem project={project} key={project.title} />
+              <ProjectItem project={project} key={project.title} />
             ))}
-          </TodayList>
+          </ProjectList>
         ) : (
-          <NoActivity> No Activity Today....</NoActivity>
+          <NoProject> No Activity Today....</NoProject>
         )
       ) : (
         <Spinner />
       )}
-    </StyledToday>
+    </StyledProjects>
   );
 }
 
-export default TodayActivity;
+export default RecentProjects;
