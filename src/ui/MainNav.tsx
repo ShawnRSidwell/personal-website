@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import {
   HiOutlineChatBubbleLeft,
-  HiOutlineChatBubbleLeftRight,
+  HiOutlineDocumentText,
   HiOutlineEnvelope,
   HiOutlineHome,
   HiOutlinePresentationChartLine,
-  HiOutlineUsers,
+  HiOutlineUser,
 } from "react-icons/hi2";
 
 const NavList = styled.ul`
@@ -72,15 +72,16 @@ function MainNav() {
           <StyledNavLink to="/cabins">
             <HiOutlineChatBubbleLeft />
 
-            <span>Ai Chat</span>
+            <span>AI Chat</span>
           </StyledNavLink>
           <StyledNavLink to="/settings">
-            <HiOutlineChatBubbleLeftRight />
+            <HiOutlineDocumentText />
 
-            <span>WebSocket Sandbox</span>
+            <span>Resume</span>
           </StyledNavLink>
           <StyledNavLink to="/users">
-            <HiOutlineUsers />
+            <HiOutlineUser />
+
             <span>About</span>
           </StyledNavLink>
           <StyledNavLink to="/users">
