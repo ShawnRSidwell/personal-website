@@ -4,6 +4,10 @@ import AppLayout from "./ui/AppLayout";
 import GlobalStyles from "./styles/GlobalStyles";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import Projects from "./pages/Projects";
+import Resume from "./pages/Resume";
+import AIChat from "./pages/AIChat";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -15,6 +19,10 @@ export default function App() {
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="ai-chat" element={<AIChat />} />
+            <Route path="resume" element={<Resume />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
           </Route>
         </Routes>
       </BrowserRouter>

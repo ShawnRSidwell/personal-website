@@ -69,22 +69,22 @@ function MainNav() {
 
             <span>Projects</span>
           </StyledNavLink>
-          <StyledNavLink to="/cabins">
+          <StyledNavLink to="/ai-chat">
             <HiOutlineChatBubbleLeft />
 
             <span>AI Chat</span>
           </StyledNavLink>
-          <StyledNavLink to="/settings">
+          <StyledNavLink to="/resume">
             <HiOutlineDocumentText />
 
             <span>Resume</span>
           </StyledNavLink>
-          <StyledNavLink to="/users">
+          <StyledNavLink to="/about">
             <HiOutlineUser />
 
             <span>About</span>
           </StyledNavLink>
-          <StyledNavLink to="/users">
+          <StyledNavLink to="/contact">
             <HiOutlineEnvelope />
             <span>Contact</span>
           </StyledNavLink>
