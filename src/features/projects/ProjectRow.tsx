@@ -30,7 +30,7 @@ const Link = styled.div`
   color: green;
 `;
 
-function ProjectRow({ project }) {
+function ProjectRow() {
   return (
     <Table.Row>
       <Project>ABC App</Project>

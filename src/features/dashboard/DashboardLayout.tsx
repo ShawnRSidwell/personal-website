@@ -16,7 +16,7 @@ const StyledDashboardLayout = styled.div`
   gap: 2.4rem;
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: flex;
+    display: ;
     flex-direction: column;
   }
 `;
