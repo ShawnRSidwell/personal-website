@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import UserAvatar from "./UserAvatar";
 import MobileMenu from "./MobileMenu";
+import { useState } from "react";
+import MainNav from "./MainNav";
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.header<{ isOpen: boolean }>`
   background-color: var(--color-grey-0);
   padding: 1.2rem 4.8rem;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: ${({ isOpen }) =>
+    isOpen ? "none" : "1px solid var(--color-grey-100);"};
+  transition: none;
 
   display: flex;
   gap: 2.4rem;
@@ -14,11 +18,20 @@ const StyledHeader = styled.header`
 `;
 
 function MobileHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <StyledHeader>
-      <UserAvatar />
-      <MobileMenu />
-    </StyledHeader>
+    <>
+      <StyledHeader isOpen={isOpen}>
+        <UserAvatar />
+        <MobileMenu isOpen={isOpen} toggleNavbar={toggleNavbar} />
+      </StyledHeader>
+      {isOpen && <MainNav />}
+    </>
   );
 }
 
