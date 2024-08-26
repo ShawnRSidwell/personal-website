@@ -32,7 +32,8 @@ function ProjectTable() {
         <Table.Body
           data={data}
           render={(project) => (
-            <ProjectRow project={project} key={project.id} />
+            //TO DO: add project prop: project={project} key={project.id}
+            <ProjectRow key={project.id} />
           )}
         />
         <Table.Footer>
