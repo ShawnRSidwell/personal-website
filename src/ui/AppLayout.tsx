@@ -8,12 +8,21 @@ const StyledAppLayout = styled.div`
   grid-template-columns: 26rem 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem 6.4rem;
   overflow: scroll;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding: 4rem 2rem 5rem;
+  }
 `;
 
 const Container = styled.div`

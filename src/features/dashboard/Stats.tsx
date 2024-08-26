@@ -5,6 +5,7 @@ import {
   HiOutlineGlobeAlt,
 } from "react-icons/hi2";
 import Stat from "./Stat";
+import styled from "styled-components";
 
 interface StatsProps {
   yearsCoding: number;
@@ -12,6 +13,7 @@ interface StatsProps {
   contributions: number;
   languagesUsed: number;
 }
+
 function Stats({
   yearsCoding,
   numRepos,

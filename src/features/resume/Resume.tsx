@@ -16,7 +16,11 @@ export default function Resume() {
   return (
     <div>
       <Document file={resumePdf}>
-        <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+        <Page
+          pageNumber={1}
+          scale={width > 786 ? 1.7 : 0.6}
+          width={width / 3}
+        />
       </Document>
     </div>
   );
