@@ -10,24 +10,32 @@ import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { useState } from "react";
 import styled from "styled-components";
 
-const StyledChat = styled.div`
+const StyledChatContainer = styled.div`
   position: relative;
   height: 65dvh;
   width: 75%;
+  background-color: var(--color-grey-0);
+
+  border-radius: var(--border-radius-md);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
 `;
 interface ChatMessage {
   message: string;
   sender: string;
   direction: "incoming" | "outgoing";
+  position: "normal" | "first" | "last" | "single";
 }
 
 export default function Chat() {
   const [isTyping, setIsTyping] = useState(false);
   const [messsages, setMessages] = useState<ChatMessage[]>([
     {
-      message: "Hello, it's a robot!",
+      message: "Hello, it's Shawn Sidwell's personal assistant",
       sender: "ChatGPT",
       direction: "incoming",
+      position: "single",
     },
   ]);
 
@@ -36,6 +44,7 @@ export default function Chat() {
       message: message,
       sender: "user",
       direction: "outgoing",
+      position: "normal", // Adjust this as needed for sequence handling
     };
 
     const newMessages = [...messsages, newMessage];
@@ -45,7 +54,7 @@ export default function Chat() {
   };
 
   return (
-    <StyledChat>
+    <StyledChatContainer>
       <MainContainer>
         <ChatContainer>
           <MessageList
@@ -65,6 +74,6 @@ export default function Chat() {
           />
         </ChatContainer>
       </MainContainer>
-    </StyledChat>
+    </StyledChatContainer>
   );
 }
