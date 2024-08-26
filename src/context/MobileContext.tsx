@@ -13,10 +13,10 @@ interface MobileContextType {
 const MobileContext = createContext<MobileContextType | undefined>(undefined);
 
 function MobileProvider({ children }: { children: ReactNode }) {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 480);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 480);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
 
     window.addEventListener("resize", handleResize);
 

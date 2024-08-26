@@ -2,16 +2,13 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import { useMobile } from "../context/MobileContext";
 
 const StyledAppLayout = styled.div`
   display: grid;
   grid-template-columns: 26rem 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: flex;
-    flex-direction: column;
   }
 `;
 
@@ -34,7 +31,8 @@ const Container = styled.div`
 `;
 
 function AppLayout() {
-  return (
+  const { isMobile } = useMobile();
+  return !isMobile ? (
     <StyledAppLayout>
       <Header />
       <Sidebar />
@@ -44,6 +42,14 @@ function AppLayout() {
         </Container>
       </Main>
     </StyledAppLayout>
+  ) : (
+    <>
+      <Main>
+        <Container>
+          <Outlet />
+        </Container>
+      </Main>
+    </>
   );
 }
 

@@ -11,10 +11,6 @@ const StyledHeader = styled.header`
   gap: 2.4rem;
   align-items: center;
   justify-content: flex-end;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: none;
-  }
 `;
 
 function Header() {
