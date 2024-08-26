@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { useMobile } from "../context/MobileContext";
+import MobileHeader from "./MobileHeader";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -28,6 +29,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  height: 100vh;
 `;
 
 function AppLayout() {
@@ -44,6 +46,7 @@ function AppLayout() {
     </StyledAppLayout>
   ) : (
     <>
+      <MobileHeader />
       <Main>
         <Container>
           <Outlet />
