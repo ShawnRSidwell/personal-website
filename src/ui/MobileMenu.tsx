@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HiOutlineBars4, HiOutlineXCircle } from "react-icons/hi2";
 import styled from "styled-components";
-import MobileNav from "./MobileNav";
+import MainNav from "./MainNav";
 
 const StyledMobileNav = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ export default function MobileMenu() {
       <MenuIcon onClick={toggleNavbar}>
         {isOpen ? <HiOutlineXCircle /> : <HiOutlineBars4 />}
       </MenuIcon>
-      {isOpen && <MobileNav />}
+      {isOpen && <MainNav />}
     </StyledMobileNav>
   );
 }
