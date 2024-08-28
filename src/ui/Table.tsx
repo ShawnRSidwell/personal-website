@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
+import { GitHubRepo } from "../service/apiGithub";
 
 interface TableProps {
   columns: string;
@@ -96,7 +97,7 @@ function Row({ children }: { children: React.ReactNode }) {
 }
 
 interface BodyProps {
-  data: string[];
+  data: string[] | GitHubRepo[];
   render: (item: any) => React.ReactNode;
 }
 

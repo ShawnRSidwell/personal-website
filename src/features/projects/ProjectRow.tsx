@@ -30,18 +30,18 @@ const Link = styled.div`
   color: green;
 `;
 
-function ProjectRow() {
+function ProjectRow({ project }) {
   return (
     <Table.Row>
-      <Project>ABC App</Project>
-      <Description>
-        Creates a displays everything a person could want
-      </Description>
-      <Size> 40kb </Size>
-      <Languages> 10000</Languages>
+      <Project>{project.name}</Project>
+      <Description>{project.description}</Description>
+      <Size> {project.size} </Size>
+      <Languages> {project.language}</Languages>
       <Link>
         <Button $size="small" $variation="primary">
-          Github
+          <a rel="stylesheet" href={project.html_url}>
+            Github
+          </a>
         </Button>
       </Link>
     </Table.Row>

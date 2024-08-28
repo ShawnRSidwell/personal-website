@@ -2,11 +2,23 @@ import ProjectRow from "./ProjectRow";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import Pagination from "../../ui/Pagination";
+import { fetchGithubData, GitHubRepo } from "../../service/apiGithub";
+import { useEffect, useState } from "react";
 // import { useSearchParams } from "react-router-dom";
 // import Spinner from "../../ui/Spinner";
 // import Empty from "../../ui/Empty";
 
 function ProjectTable() {
+  const [githubRepos, setGithubRepos] = useState<GitHubRepo[]>([]);
+
+  useEffect(() => {
+    const getGithubData = async () => {
+      const githubData = await fetchGithubData("shawnrsidwell");
+      setGithubRepos(githubData);
+    };
+    getGithubData();
+  }, []);
+
   //   const [searchParams] = useSearchParams();
 
   //   if (isLoading) return <Spinner />;
@@ -15,10 +27,11 @@ function ProjectTable() {
   // filter
 
   //TODO: remove in production
-  const data: string[] = [];
-  for (let i = 0; i < 11; i++) {
-    data.push("test");
-  }
+  // const data: string[] = [];
+  // for (let i = 0; i < 11; i++) {
+  //   data.push("test");
+  // }
+
   return (
     <Menus>
       <Table columns="3fr 9fr .8fr 3fr 1fr">
@@ -30,14 +43,14 @@ function ProjectTable() {
           <div>Link</div>
         </Table.Header>
         <Table.Body
-          data={data}
+          data={githubRepos}
           render={(project) => (
             //TO DO: add project prop: project={project} key={project.id}
-            <ProjectRow key={project.id} />
+            <ProjectRow project={project} key={project.id} />
           )}
         />
         <Table.Footer>
-          <Pagination count={data.length} />
+          <Pagination count={githubRepos.length} />
         </Table.Footer>
       </Table>
     </Menus>
