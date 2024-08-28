@@ -1,4 +1,5 @@
 import AIChatLayout from "../features/ai-chat/AIChatLayout";
+import Container from "../ui/Container";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 
@@ -8,7 +9,9 @@ export default function AIChat() {
       <Row type="horizontal">
         <Heading as="h1">Dashboard</Heading>
       </Row>
-      <AIChatLayout />
+      <Container>
+        <AIChatLayout />
+      </Container>
     </>
   );
 }
