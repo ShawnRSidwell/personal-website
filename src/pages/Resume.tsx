@@ -1,6 +1,5 @@
 import ResumeLayout from "../features/resume/ResumeLayout";
 import Button from "../ui/Button";
-import Container from "../ui/Container";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 
