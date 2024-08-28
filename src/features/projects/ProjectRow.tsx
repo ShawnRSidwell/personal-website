@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Table from "../../ui/Table";
 import Button from "../../ui/Button";
+import { GitHubRepo } from "../../service/apiGithub";
 
 const Project = styled.div`
   font-size: 1.6rem;
@@ -30,13 +31,17 @@ const Link = styled.div`
   color: green;
 `;
 
-function ProjectRow({ project }) {
+interface ProjectRowProps {
+  project: GitHubRepo;
+}
+
+function ProjectRow({ project }: ProjectRowProps) {
   return (
     <Table.Row>
       <Project>{project.name}</Project>
       <Description>{project.description}</Description>
-      <Size> {project.size} </Size>
       <Languages> {project.language}</Languages>
+      <Size> {project.size} </Size>
       <Link>
         <Button $size="small" $variation="primary">
           <a rel="stylesheet" href={project.html_url}>

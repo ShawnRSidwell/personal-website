@@ -4,48 +4,56 @@ import Menus from "../../ui/Menus";
 import Pagination from "../../ui/Pagination";
 import { fetchGithubData, GitHubRepo } from "../../service/apiGithub";
 import { useEffect, useState } from "react";
-// import { useSearchParams } from "react-router-dom";
-// import Spinner from "../../ui/Spinner";
-// import Empty from "../../ui/Empty";
+import Spinner from "../../ui/Spinner";
+import Empty from "../../ui/Empty";
 
 function ProjectTable() {
   const [githubRepos, setGithubRepos] = useState<GitHubRepo[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getGithubData = async () => {
-      const githubData = await fetchGithubData("shawnrsidwell");
-      setGithubRepos(githubData);
+      setIsLoading(true);
+      setError(null);
+      try {
+        const githubData = await fetchGithubData("shawnrsidwell");
+        setGithubRepos(githubData);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message); // Type-safe access to the message property
+        } else {
+          setError("An unknown error occurred."); // Fallback for non-Error objects
+        }
+      } finally {
+        setIsLoading(false);
+      }
     };
     getGithubData();
   }, []);
 
-  //   const [searchParams] = useSearchParams();
+  if (!githubRepos.length) return <Empty resourceName="Github Repositories" />;
+  if (isLoading) {
+    return <Spinner />;
+  }
 
-  //   if (isLoading) return <Spinner />;
-  //   if (!cabins.length) return <Empty resourceName="cabins" />;
-
-  // filter
-
-  //TODO: remove in production
-  // const data: string[] = [];
-  // for (let i = 0; i < 11; i++) {
-  //   data.push("test");
-  // }
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <Menus>
-      <Table columns="3fr 9fr .8fr 3fr 1fr">
+      <Table columns="3fr 9fr 2fr 1fr 2fr">
         <Table.Header>
           <div>Title</div>
           <div>Description</div>
-          <div>Size</div>
           <div>Language</div>
+          <div>Size</div>
           <div>Link</div>
         </Table.Header>
         <Table.Body
           data={githubRepos}
           render={(project) => (
-            //TO DO: add project prop: project={project} key={project.id}
             <ProjectRow project={project} key={project.id} />
           )}
         />
