@@ -10,6 +10,7 @@ import {
 } from "react-icons/hi2";
 
 const NavList = styled.ul`
+  background-color: var(--color-grey-0);
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
